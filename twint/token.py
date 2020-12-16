@@ -26,7 +26,7 @@ class Token:
     def _request(self):
         for attempt in range(self._retries + 1):
             # The request is newly prepared on each retry because of potential cookie updates.
-            req = self._session.prepare_request(requests.Request('GET', self.url))
+            req = self._session.prepare_request(requests.Request('GET', self.url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'}))
             logme.debug(f'Retrieving {req.url}')
             try:
                 r = self._session.send(req, allow_redirects=True, timeout=self._timeout)
