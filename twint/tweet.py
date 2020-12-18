@@ -149,7 +149,7 @@ def Tweet(tw, config):
         t.quote_url = 0
     t.near = config.Near if config.Near else ""
     t.geo = config.Geo if config.Geo else ""
-    t.source = config.Source if config.Source else ""
+    t.source = tw['source']
     t.translate = ''
     t.trans_src = ''
     t.trans_dest = ''
